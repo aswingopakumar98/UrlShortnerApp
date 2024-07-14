@@ -1,0 +1,7 @@
+
+{
+  "/GenerateUrl": {
+    "target": "http://localhost:5218",
+    "secure": false
+  }
+}
