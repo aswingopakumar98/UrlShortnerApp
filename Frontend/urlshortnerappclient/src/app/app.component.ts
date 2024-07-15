@@ -14,7 +14,7 @@ import { UrlshortenerserviceService } from './services/urlshortenerservice.servi
 export class AppComponent implements OnInit {
   title = 'urlshortnerappclient';
   urlForm!: FormGroup;
-
+generatedUrl:string | undefined;
   constructor(private urlshortenerService: UrlshortenerserviceService) {
 
   }
@@ -27,6 +27,8 @@ export class AppComponent implements OnInit {
     this.urlshortenerService.generateUrl(longUrl).subscribe({
       next: (data) => {
         console.log(data);
+        this.generatedUrl=data.generatedUrl;
+        
       }, error: (error) => { console.error(error); }
     }
     );

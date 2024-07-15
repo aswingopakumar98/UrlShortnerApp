@@ -23,12 +23,12 @@
     </div>
   </nav>
 </header>
-<main class="d-flex justify-content-center align-items-center h-100">
-  <form [formGroup]="urlForm" (ngSubmit)="generateUrl()">
+<main class="d-flex flex-column justify-content-center align-items-center h-100">
+  <form [formGroup]="urlForm" (ngSubmit)="generateUrl()" class="d-flex gap-1">
   <input type="text" class="form-control "  formControlName="longUrl">
 <button type="submit" class="btn btn-primary">shortme!</button>
 </form>
-
+<div *ngIf="generatedUrl">Generated Url: {{ generatedUrl }}</div>
 </main>
 </div>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

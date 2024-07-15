@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using UrlShortner.Data;
 using UrlShortner.Data.Models;
 
@@ -11,10 +12,13 @@ namespace UrlShortner.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly ShortenService _shortenservice;
-        public GenerateUrlController(ApplicationDbContext context, ShortenService shortenservice)
+
+        private readonly AppConfig _appconfig;
+        public GenerateUrlController(ApplicationDbContext context, ShortenService shortenservice,IOptions<AppConfig> appconfig)
         {
             _context = context;
             _shortenservice = shortenservice;
+            _appconfig=appconfig.Value;
         }
 
         [HttpGet]
@@ -23,10 +27,9 @@ namespace UrlShortner.Controllers
             return Ok("This is a GET response from SampleController");
         }
         [HttpPost]
-        public async Task<IResult> ShortenUrl([FromBody] string longUrl)
+        public async Task<UrlMappingDTO> ShortenUrl([FromBody] string longUrl)
         {
             var shortUrl = await _shortenservice.GenerateCode();
-            // return longUrl;
             var urlMappingObject = new UrlMapping
             {
                 LongUrl = longUrl,
@@ -34,10 +37,10 @@ namespace UrlShortner.Controllers
                 Clicks = 0
 
             };
-            // urlMappingModel.shortUrl=shortUrl;
             _context.UrlMappings.Add(urlMappingObject);
             await _context.SaveChangesAsync();
-            return Results.Ok();
+            var UrlMappingDTO = new UrlMappingDTO(_appconfig.redirectAppDomain+urlMappingObject.shortUrl);
+            return UrlMappingDTO;
         }
 
 
