@@ -1,1 +1,4 @@
-<p>home works!</p>
+<form [formGroup]="urlForm" (ngSubmit)="generateUrl()" class="d-flex gap-1">
+    <input type="text" class="form-control "  formControlName="longUrl">
+  <button type="submit" class="btn btn-primary">shortme!</button>
+  </form>
