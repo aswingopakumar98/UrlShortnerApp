@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup ,ReactiveFormsModule} from '@angular/forms';
-import { UrlshortenerserviceService } from '../services/urlshortenerservice.service';
+import { UrlshortenerService } from '../services/urlshortenerservice.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,7 +14,7 @@ export class HomeComponent {
   urlForm!: FormGroup;
   generatedUrl: string|undefined;
 
-  constructor(private urlshortenerService: UrlshortenerserviceService) {
+  constructor(private urlshortenerService: UrlshortenerService) {
 
   }
   ngOnInit() {
