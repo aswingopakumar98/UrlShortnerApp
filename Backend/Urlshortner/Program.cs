@@ -20,6 +20,8 @@ builder.Services.AddCors(options =>
                       });
 });
 
+builder.Services.Configure<AppConfig>(builder.Configuration.GetSection("AppConfig"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

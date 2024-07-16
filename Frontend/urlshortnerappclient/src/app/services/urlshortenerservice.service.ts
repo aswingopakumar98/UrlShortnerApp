@@ -20,7 +20,7 @@ export class UrlshortenerserviceService {
         'Content-Type': 'application/json',
       })
     };
-    return this.http.post<UrlMapping>(url, JSON.stringify(longUrl),httpOptions
+    return this.http.post<any>(url, JSON.stringify(longUrl),httpOptions
       );
     // return this.http.post<UrlMapping>(url, longUrl);
   }  
