@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UrlMapping } from '../models/UrlMapping';
-import { UrlshortenerserviceService } from '../services/urlshortenerservice.service';
+import { UrlshortenerService } from '../services/urlshortenerservice.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { UrlshortenerserviceService } from '../services/urlshortenerservice.serv
 })
 export class AnalyticsComponent   {
   dataSource:UrlMapping[]| undefined;
-  constructor(private urlshortenerservice:UrlshortenerserviceService){}
+  constructor(private urlshortenerservice:UrlshortenerService){}
   ngOnInit(){
   
   this.urlshortenerservice.getStatistics().subscribe((data:any)=>{

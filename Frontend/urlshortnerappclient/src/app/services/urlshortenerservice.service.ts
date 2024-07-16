@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UrlshortenerserviceService {
+export class UrlshortenerService {
 
   constructor(private http: HttpClient) { }
 

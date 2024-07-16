@@ -1,5 +1,7 @@
-<form [formGroup]="urlForm" (ngSubmit)="generateUrl()" class="d-flex gap-1">
-    <input type="text" class="form-control "  formControlName="longUrl">
-  <button type="submit" class="btn btn-primary">shortme!</button>
-  <div *ngIf="generatedUrl">Generated Url: {{ generatedUrl }}</div>
+<div id="home-wrapper" class="d-flex flex-column gap-2">
+  <form [formGroup]="urlForm" (ngSubmit)="generateUrl()" class="d-flex gap-1 ">
+    <input type="text" class="form-control " formControlName="longUrl">
+    <button type="submit" class="btn btn-primary">shortme!</button>
   </form>
+  <div *ngIf="generatedUrl">Generated Url: {{ generatedUrl }}</div>
+</div>
