@@ -3,5 +3,9 @@
     <input type="text" class="form-control " formControlName="longUrl">
     <button type="submit" class="btn btn-primary">shortme!</button>
   </form>
+    <!-- <div *ngIf="urlForm.get('longUrl')?.invalid && (urlForm.get('longUrl')?.dirty || urlForm.get('longUrl')?.touched)">
+  <div *ngIf="urlForm.controls['longUrl'].errors?.['pattern']">Entered url is not valid</div>
+  <div *ngIf="urlForm.controls['longUrl'].errors?.['required']">The field is empty<div> 
+     </div> -->
   <div *ngIf="generatedUrl">Generated Url: {{ generatedUrl }}</div>
 </div>
