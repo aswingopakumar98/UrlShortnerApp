@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UrlshortenerserviceService } from './urlshortenerservice.service';
+import { UrlshortenerService } from './urlshortenerservice.service';
 
 describe('UrlshortenerserviceService', () => {
-  let service: UrlshortenerserviceService;
+  let service: UrlshortenerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(UrlshortenerserviceService);
+    service = TestBed.inject(UrlshortenerService);
   });
 
   it('should be created', () => {
